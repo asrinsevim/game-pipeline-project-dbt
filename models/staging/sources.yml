@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_data_source # Bu kaynağa verdiğimiz genel bir isim
+    database: game-pipeline-project # Sizin GCP Proje ID'niz
+    schema: game_pipeline_raw_data # BigQuery'de oluşturduğumuz dataset
+    tables:
+      - name: raw_match_results # Airflow'un GCS'ten yükleyeceği tablonun adı
