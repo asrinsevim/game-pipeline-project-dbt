@@ -11,7 +11,30 @@ This project is an end-to-end data engineering pipeline that simulates the data 
 *A high-level diagram illustrating the flow of data from source to destination.*
 
 ![Architecture Diagram](path/to/your/diagram.png) 
-*(Note: You should create a diagram using a tool like draw.io or Excalidraw and upload it to your repository, then update this link.)*
+graph LR
+    subgraph "Data Source"
+        A[match_results.csv]
+    end
+
+    subgraph "Google Cloud Platform"
+        B(Cloud Storage)
+        C{Cloud Composer <br>(Airflow)}
+        D[BigQuery - Raw Data <br> raw_match_results]
+        G[BigQuery - Production <br> stg_matches]
+    end
+
+    subgraph "Transformation & Code"
+        E(dbt Cloud)
+        F(GitHub)
+    end
+    
+    A -- Manual Upload --> B
+    C -- 1. Triggers Load --> B
+    B -- 2. Loads Data To --> D
+    C -- 3. Triggers Job --> E
+    F -- 4. Provides Code --> E
+    E -- 5. Reads From --> D
+    E -- 6. Writes To --> G
 
 ---
 
