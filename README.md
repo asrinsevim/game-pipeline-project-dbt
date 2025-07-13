@@ -4,8 +4,6 @@
 
 This project is an end-to-end data engineering pipeline that simulates the data infrastructure for a mobile game. It demonstrates a complete, automated ELT (Extract, Load, Transform) process using modern, cloud-native data stack tools. The pipeline automatically ingests raw game data, loads it into a data warehouse, and transforms it into clean, analytics-ready tables.
 
-**🎯 Target:** This project was specifically developed to showcase the core competencies required for the **Data Engineer role at Dream Games**, covering their specified tech stack and responsibilities.
-
 ---
 
 ## Architecture
